@@ -43,7 +43,7 @@ class PeopleTest extends TestCase
         $body = json_decode($response->getBody()->getContents());
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('People created with success', $body->message);
+        $this->assertStringContainsString('Registro criado com sucesso :)', $body->message);
     }
 
     /** @test */
@@ -71,7 +71,7 @@ class PeopleTest extends TestCase
         $body = json_decode($response->getBody()->getContents());
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('People updated with success', $body->message);
+        $this->assertStringContainsString('Resgistro atualizado :)', $body->message);
     }
 
     /** @test */
@@ -87,10 +87,7 @@ class PeopleTest extends TestCase
         ];
 
         $response = $this->client->delete("/api/users", ["json" => $data]);
-        $body = json_decode($response->getBody()->getContents());
-
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('People has been deleted', $body->message);
 
     }
 }

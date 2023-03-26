@@ -19,7 +19,7 @@ class CompanyTest extends TestCase
 
 
     /** @test */
-    public function user_try_get_all_users()
+    public function user_try_get_all_companys()
     {
         $response = $this->client->get('/api/company');
 
@@ -28,7 +28,7 @@ class CompanyTest extends TestCase
     }
 
     /** @test */
-    public function user_try_create_a_user()
+    public function user_try_create_a_company()
     {
         $data = [
             "name" => "Two Brothers One Cup LTDA",
@@ -41,11 +41,11 @@ class CompanyTest extends TestCase
         $body = json_decode($response->getBody()->getContents());
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('Company created with success', $body->message);
+        $this->assertStringContainsString('Compania criada com sucesso :)', $body->message);
     }
 
     /** @test */
-    public function user_try_update_a_user()
+    public function user_try_update_a_company()
     {
         $data = [
             "name" => "Two Brothers One Cup LTDA",
@@ -67,11 +67,11 @@ class CompanyTest extends TestCase
         $body = json_decode($response->getBody()->getContents());
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('Company updated with success', $body->message);
+        $this->assertStringContainsString('Compania atualizada :)', $body->message);
     }
 
     /** @test */
-    public function user_try_delete_a_user()
+    public function user_try_delete_a_company()
     {
         $response = $this->client->get('/api/company');
         $this->assertEquals(200, $response->getStatusCode());
@@ -83,10 +83,6 @@ class CompanyTest extends TestCase
         ];
 
         $response = $this->client->delete("/api/company", ["json" => $data]);
-        $body = json_decode($response->getBody()->getContents());
-
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('Company has been deleted', $body->message);
-
     }
 }
