@@ -26,3 +26,22 @@ Now run this command to run the application tests
 ```yml
 docker exec -it people_list_web vendor/bin/phpunit
 ```
+
+##### Obs:
+
+- You don't need to worry about creating the database, it is being generated automatically, as soon as you run docker
+- The conference file is at
+
+```yml
+docker/mariadb/create-database.sh
+```
+
+- The application tests were done using the PhpUnit library
+- The structure of the project, I tried to make it as close as possible to laravel, as it is already more familiar
+- If you are trying to run and are having problems starting docker, it may be that your containers cache is bad, so I recommend that you clean everything with
+
+```yml
+docker system prune -a
+```
+
+- after that try running the command again
