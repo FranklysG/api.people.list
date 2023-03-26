@@ -65,7 +65,7 @@ class Connection
             $this->execute($sql, array_values($attributes));
             $id = $this->transaction->lastInsertId();
 
-            return $this->onReload('id = '.$id);
+            return $this->onReload('id = "'.$id.'"');
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());
         }
@@ -77,9 +77,8 @@ class Connection
             $keys  = array_keys($attributes);
             $sql = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $keys) . '=? WHERE uuid = "' . $uuid .'"';
             $this->execute($sql, array_values($attributes));
-            $id = $this->transaction->lastInsertId();
-
-            return $this->onReload('id = '.$id);
+           
+            return $this->onReload('uuid = "'.$uuid.'"');
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());
         }
