@@ -39,7 +39,7 @@ class CompanyController
         $company = $repository->update($uuid, $request);
 
         if ($company) {
-            return (new apiResponse)->successResponse('Company created with success', (array) $company);
+            return (new apiResponse)->successResponse('Company updated with success', (array) $company);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
