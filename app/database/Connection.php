@@ -65,7 +65,7 @@ class Connection
             $this->execute($sql, array_values($attributes));
             $id = $this->transaction->lastInsertId();
 
-            return $this->onReload('id = "'.$id.'"');
+            return $this->onReload('id = "' . $id . '"');
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());
         }
@@ -75,10 +75,10 @@ class Connection
     {
         try {
             $keys  = array_keys($attributes);
-            $sql = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $keys) . '=? WHERE uuid = "' . $uuid .'"';
+            $sql = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $keys) . '=? WHERE uuid = "' . $uuid . '"';
             $this->execute($sql, array_values($attributes));
-           
-            return $this->onReload('uuid = "'.$uuid.'"');
+
+            return $this->onReload('uuid = "' . $uuid . '"');
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());
         }
@@ -98,10 +98,27 @@ class Connection
         }
     }
 
+    public function onSearch($param = '', $search = null)
+    {
+        try {
+            $sql = 'SELECT * FROM ' . $this->table;
+
+            if (!empty($search)) {
+                $query = implode(' LIKE "%' . $param . '%" OR ', $search);
+                $query = '(' . $query . ')';
+                $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $query;
+            }
+            
+            return $this->execute($sql);
+        } catch (PDOException $e) {
+            die('ERROR: ' . $e->getMessage());
+        }
+    }
+
     public function onDelete($uuid)
     {
         try {
-            $sql = 'DELETE FROM ' . $this->table . ' WHERE uuid = "' . $uuid .'"';
+            $sql = 'DELETE FROM ' . $this->table . ' WHERE uuid = "' . $uuid . '"';
             return $this->execute($sql);
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());

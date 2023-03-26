@@ -33,7 +33,7 @@ class CompanyTest extends TestCase
         $data = [
             "name" => "Two Brothers One Cup LTDA",
             "doc" => "twobrothers@gmail.com",
-            "adrress" => "Rua Margarida azevedo, 74, General Ozorio, Fortaleza - CE"
+            "address" => "Rua Margarida azevedo, 74, General Ozorio, Fortaleza - CE"
         ];
 
         $response = $this->client->post('/api/company', ["json" => $data]);
@@ -50,7 +50,7 @@ class CompanyTest extends TestCase
         $data = [
             "name" => "Two Brothers One Cup LTDA",
             "doc" => "twobrothers@gmail.com",
-            "adrress" => "Rua Margarida azevedo, 74, General Ozorio, Fortaleza - CE"
+            "address" => "Rua Margarida azevedo, 74, General Ozorio, Fortaleza - CE"
         ];
 
         $response = $this->client->post('/api/company',  ["json" => $data]);

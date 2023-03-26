@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Access-Control-Allow-Credentials: true');
-
+header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
@@ -14,13 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Content-Type: text/plain');
     exit();
 }
-// $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
-// if ($contentType === "application/json") {
-//   header("Content-Type: application/json");
-// } else if ($contentType === "application/x-www-form-urlencoded") {
-//   header("Content-Type: application/x-www-form-urlencoded");
-// } else {
-// }
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/routes/routes.php';
@@ -35,6 +28,8 @@ if (array_key_exists($methods . ':' . $uri, $routes)) {
 
     if ($methods != 'GET') {
         $data = json_decode(file_get_contents('php://input'), true);
+    }else{
+        $data = isset($_GET['search']) ? $_GET['search'] : null;
     }
 
     $controller = $routes[$methods . ':' . $uri][0];

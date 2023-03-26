@@ -7,10 +7,10 @@ use App\models\PeopleModel;
 class PeopleRepositories
 {
 
-    public function load()
+    public function load($params = '')
     {
         $peoples = new PeopleModel();
-        $data = $peoples->load();
+        $data = $peoples->search($params);
         $sanitize = [];
         foreach ($data as $item) {
             $sanitize[] = $this->sanitizeUserData((array)$item);

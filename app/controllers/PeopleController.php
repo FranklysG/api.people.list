@@ -8,10 +8,10 @@ use App\services\ApiResponse;
 class PeopleController
 {
 
-    public static function show()
+    public static function show($params)
     {
         $repository  = new PeopleRepositories;
-        $peoples = $repository->load();
+        $peoples = $repository->load($params);
 
         if ($peoples) {
             return (new apiResponse)->successResponse('People list', $peoples);

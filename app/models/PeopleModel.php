@@ -11,15 +11,16 @@ class PeopleModel extends BaseModel
     const PRIMARYKEY = 'id';
     const IDPOLICY = 'max';
 
-    private $uuid;
-    private $name;
-    private $email;
-    private $phone;
-    private $date_born;
-    private $city_born;
-
     public function __construct()
     {
-        parent::__construct(self::TABLENAME);
+        $search = [
+            'name',
+            'email',
+            'phone',
+            'date_born',
+            'city_born'
+        ];
+
+        parent::__construct(self::TABLENAME, $search);
     }
 }

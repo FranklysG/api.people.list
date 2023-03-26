@@ -8,10 +8,10 @@ use App\services\ApiResponse;
 class CompanyController
 {
 
-    public static function show()
+    public static function show($params)
     {
         $repository  = new CompanyRepositories;
-        $company = $repository->load();
+        $company = $repository->load($params);
 
         if ($company) {
             return (new apiResponse)->successResponse('Company list', $company);

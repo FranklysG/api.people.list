@@ -11,14 +11,15 @@ class CompanyModel extends BaseModel
     const PRIMARYKEY = 'id';
     const IDPOLICY = 'max';
 
-    private $id;
-    private $uuid;
-    private $name;
-    private $doc;
-    private $adrress;
-
     public function __construct()
     {
-        parent::__construct(self::TABLENAME);
+
+        $search = [
+            'name',
+            'doc',
+            'address'
+        ];
+
+        parent::__construct(self::TABLENAME, $search);
     }
 }

@@ -10,10 +10,12 @@ class BaseModel
 
 
     private $table;
+    private $search;
 
-    public function __construct($table)
+    public function __construct($table, $fields = [])
     {
         $this->table = $table;
+        $this->search = $fields;
     }
 
     /**
@@ -62,6 +64,19 @@ class BaseModel
     {
         $table = $this->table;
         $load = (new Connection($table))->onReload($where, $order, $limit);
+        return $load;
+    }
+
+    /**
+     * função resposavel por retornar os objetos filtrados do banco .
+     * @param $where 
+     * @param $order 
+     * @param $limit 
+     */
+    public function search($param = '')
+    {
+        $table = $this->table;
+        $load = (new Connection($table))->onSearch($param, $this->search);
         return $load;
     }
 }

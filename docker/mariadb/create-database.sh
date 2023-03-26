@@ -17,7 +17,7 @@ mysql --user=root --password="$MYSQL_ROOT_PASSWORD" <<-EOSQL
             \`uuid\` VARCHAR(45) NULL DEFAULT NULL,
             \`name\` VARCHAR(45) NULL DEFAULT NULL,
             \`doc\` VARCHAR(45) NULL DEFAULT NULL,
-            \`adrress\` VARCHAR(255) NULL DEFAULT NULL,
+            \`address\` VARCHAR(255) NULL DEFAULT NULL,
             PRIMARY KEY (\`id\`)
         );
     CREATE TABLE IF NOT EXISTS \`peoplelist\`.\`company_has_users\` (
@@ -42,15 +42,15 @@ mysql --user=root --password="$MYSQL_ROOT_PASSWORD" <<-EOSQL
     INSERT INTO \`peoplelist\`.\`users\` (\`uuid\`, \`name\`, \`email\`, \`phone\`, \`date_born\`, \`city_born\`) VALUES ('c62b4de4-1f4a-4c9c-9d8f-298b056c56f2', 'Pedro Henrique dos Santos', 'pedro.henrique_santos@gmail.com', '99645727891', '22/06/1995', 'Belo Horizonte - MG');
     INSERT INTO \`peoplelist\`.\`users\` (\`uuid\`, \`name\`, \`email\`, \`phone\`, \`date_born\`, \`city_born\`) VALUES ('3f48a50d-9f27-4832-baa2-c6ef77f06a94', 'Isabela Cardoso Costa', 'isabela_costa@hotmail.com', '98755623491', '09/02/1997', 'Fortaleza - CE');
 
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('7g4595fa-08d7-4022-bb31-3fce366ff763', 'America Comapany', '24.717.870/0001-81', 'Av. Alameda Jr, São Caetano, Mirante, Goiania - GO');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('6f4559fa-08d7-4022-bb31-3fce366ff763', 'Louisiana Comapany', '50.177.780/0001-18', 'Av. Alameda Jr, São Caetano, Mirante, Goiania - GO');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('f01c6d0e-bba7-4c9f-b83d-1d3fa1fbb54f', 'ABC Comércio', '17.568.123/0001-90', 'Rua Pedro Alves, 20, Centro, São Paulo - SP');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('b66c7485-25e5-474d-90d7-6c1a6e3a87d9', 'XPTO Industries', '22.098.897/0001-20', 'Rua José dos Santos, 121, Cidade Jardim, Belo Horizonte - MG');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('44a998cb-b4f4-47f8-ba87-202d9357a66e', 'YZ Industries', '55.352.101/0001-05', 'Rua Francisco Pedro, 400, Vila dos Remédios, Recife - PE');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('5c5ba5d7-b8ea-40c4-96cf-767e5154a4f4', 'Supermarkets Inc', '12.345.678/0001-09', 'Avenida Juscelino Kubitschek, 1400, Vila Olímpia, São Paulo - SP');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('39e57bf2-1d28-481c-8656-91de1ba68c46', 'ACME Corporation', '78.901.234/0001-12', 'Rua do Sol, 32, Centro, Rio de Janeiro - RJ');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('f2b6cafe-6e49-48f9-87a7-57fa05d71ea2', 'Global Tech', '33.222.333/0001-11', 'Avenida Paulista, 1000, Bela Vista, São Paulo - SP');
-    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`adrress\`) VALUES ('e8fb95f5-c22d-4a3e-a72c-85d7d1a14d8c', 'Dream Cars', '45.678.912/0001-01', 'Rua das Flores, 500, Jardim Europa, Porto Alegre - RS');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('7g4595fa-08d7-4022-bb31-3fce366ff763', 'America Comapany', '24.717.870/0001-81', 'Av. Alameda Jr, São Caetano, Mirante, Goiania - GO');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('6f4559fa-08d7-4022-bb31-3fce366ff763', 'Louisiana Comapany', '50.177.780/0001-18', 'Av. Alameda Jr, São Caetano, Mirante, Goiania - GO');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('f01c6d0e-bba7-4c9f-b83d-1d3fa1fbb54f', 'ABC Comércio', '17.568.123/0001-90', 'Rua Pedro Alves, 20, Centro, São Paulo - SP');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('b66c7485-25e5-474d-90d7-6c1a6e3a87d9', 'XPTO Industries', '22.098.897/0001-20', 'Rua José dos Santos, 121, Cidade Jardim, Belo Horizonte - MG');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('44a998cb-b4f4-47f8-ba87-202d9357a66e', 'YZ Industries', '55.352.101/0001-05', 'Rua Francisco Pedro, 400, Vila dos Remédios, Recife - PE');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('5c5ba5d7-b8ea-40c4-96cf-767e5154a4f4', 'Supermarkets Inc', '12.345.678/0001-09', 'Avenida Juscelino Kubitschek, 1400, Vila Olímpia, São Paulo - SP');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('39e57bf2-1d28-481c-8656-91de1ba68c46', 'ACME Corporation', '78.901.234/0001-12', 'Rua do Sol, 32, Centro, Rio de Janeiro - RJ');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('f2b6cafe-6e49-48f9-87a7-57fa05d71ea2', 'Global Tech', '33.222.333/0001-11', 'Avenida Paulista, 1000, Bela Vista, São Paulo - SP');
+    INSERT INTO \`peoplelist\`.\`company\` (\`uuid\`, \`name\`, \`doc\`, \`address\`) VALUES ('e8fb95f5-c22d-4a3e-a72c-85d7d1a14d8c', 'Dream Cars', '45.678.912/0001-01', 'Rua das Flores, 500, Jardim Europa, Porto Alegre - RS');
 
     
     INSERT INTO \`peoplelist\`.\`company_has_users\` (\`users_id\`, \`company_id\`) VALUES ('1', '1');

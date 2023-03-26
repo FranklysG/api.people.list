@@ -6,9 +6,9 @@ use App\models\CompanyModel;
 
 class CompanyRepositories {
 
-    public function load() {
+    public function load($params) {
         $company = new CompanyModel();
-        return $company->load();
+        return $company->search($params);
     }
 
     public function store($data) {
