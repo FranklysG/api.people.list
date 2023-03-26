@@ -1,0 +1,15 @@
+{
+    "name": "people/list",
+    "type": "project",
+    "description": "The aplication for list people and comapany",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}

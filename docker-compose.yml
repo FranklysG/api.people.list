@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  web:
+    container_name: people_list_web
+    build:
+      context: ./docker/8.1
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    environment:
+      MYSQL_HOST: mariadb
+      MYSQL_DATABASE: peoplelist
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    volumes:
+      - .:/var/www/html/
+  db:
+    container_name: people_list_db
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: peoplelist
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - './docker/mariadb/create-database.sh:/docker-entrypoint-initdb.d/01-create-database.sh'
