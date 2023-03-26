@@ -26,7 +26,7 @@ class PeopleController
         $peoples = $repository->store($request);
 
         if ($peoples) {
-            return (new apiResponse)->successResponse('People created with success', (array) $peoples);
+            return (new apiResponse)->successResponse('Registro criado com sucesso :)', (array) $peoples);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
@@ -41,7 +41,7 @@ class PeopleController
         $peoples = $repository->update($uuid, $request);
         
         if ($peoples) {
-            return (new apiResponse)->successResponse('People updated with success', (array) $peoples);
+            return (new apiResponse)->successResponse('Resgistro atualizado :)', (array) $peoples);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
@@ -54,7 +54,7 @@ class PeopleController
         $peoples = $repository->delete($uuid);
 
         if ($peoples) {
-            return (new apiResponse)->successResponse('People has been deleted', (array) []);
+            return (new apiResponse)->successResponse('Registro deletado :)', (array) []);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }

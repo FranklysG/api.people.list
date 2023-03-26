@@ -26,7 +26,7 @@ class CompanyController
         $company = $repository->store($request);
 
         if ($company) {
-            return (new apiResponse)->successResponse('Company created with success', (array) $company);
+            return (new apiResponse)->successResponse('Compania criada com sucesso :)', (array) $company);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
@@ -39,7 +39,7 @@ class CompanyController
         $company = $repository->update($uuid, $request);
 
         if ($company) {
-            return (new apiResponse)->successResponse('Company updated with success', (array) $company);
+            return (new apiResponse)->successResponse('Compania atualizada :)', (array) $company);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
@@ -52,7 +52,7 @@ class CompanyController
         $company = $repository->delete($uuid);
 
         if ($company) {
-            return (new apiResponse)->successResponse('Company has been deleted', (array) []);
+            return (new apiResponse)->successResponse('Compania deletada :)', (array) []);
         } else {
             return (new apiResponse)->errorResponse('Wrong error', []);
         }
