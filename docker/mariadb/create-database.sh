@@ -21,14 +21,16 @@ mysql --user=root --password="$MYSQL_ROOT_PASSWORD" <<-EOSQL
             PRIMARY KEY (\`id\`)
         );
     CREATE TABLE IF NOT EXISTS \`peoplelist\`.\`company_has_users\` (
+            \`id\` INT(11) NOT NULL AUTO_INCREMENT,
             \`company_id\` INT(11) NOT NULL,
             \`users_id\` INT(11) NOT NULL,
-            PRIMARY KEY (\`users_id\`, \`company_id\`),
+            PRIMARY KEY (\`id\`),
             INDEX \`fk_company_has_users_company1_idx\` (\`company_id\` ASC) VISIBLE,
             INDEX \`fk_company_has_users_users_idx\` (\`users_id\` ASC) VISIBLE,
             CONSTRAINT \`fk_company_has_users_users\` FOREIGN KEY (\`users_id\`) REFERENCES \`peoplelist\`.\`users\` (\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION,
             CONSTRAINT \`fk_company_has_users_company1\` FOREIGN KEY (\`company_id\`) REFERENCES \`peoplelist\`.\`company\` (\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION
         );
+        
     INSERT INTO \`peoplelist\`.\`users\` (\`uuid\`, \`name\`, \`email\`, \`phone\`, \`date_born\`, \`city_born\`) VALUES ('8b2c5ceb-280a-4c62-8c5f-8451c6b7c63d', 'Maria Lurdes Almeida', 'm.lurdes@gmail.com', '99984657328', '', '');
     INSERT INTO \`peoplelist\`.\`users\` (\`uuid\`, \`name\`, \`email\`, \`phone\`, \`date_born\`, \`city_born\`) VALUES ('43097951-2b82-4681-94e5-d34f4e7ae49b', 'Amanda Lucia de Sá', 'amanda.lucia@gmail.com', '99985763456', '12/03/1858', 'Lagoa da Pedra - MA');
     INSERT INTO \`peoplelist\`.\`users\` (\`uuid\`, \`name\`, \`email\`, \`phone\`, \`date_born\`, \`city_born\`) VALUES ('55b7530e-9656-4c1f-b083-67019f7d8a35', 'Claudio Ferreira Belo', 'claudio.beto@gmail.com', '9994763489', '31/03/1989', 'Patos - PA');
