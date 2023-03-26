@@ -27,7 +27,15 @@ Now run this command to run the application tests
 docker exec -it people_list_web vendor/bin/phpunit
 ```
 
-##### Obs:
+#### Obvious remarks:
+
+- It is highly necessary that both the backend and the frontend are running!
+
+##### A Tip
+
+- To make it easier, I like to leave a project running in each terminal, so we have the free test editor
+
+#### Conclusion:
 
 - You don't need to worry about creating the database, it is being generated automatically, as soon as you run docker
 - The conference file is at
