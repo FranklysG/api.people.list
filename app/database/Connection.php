@@ -108,7 +108,7 @@ class Connection
                 $query = '(' . $query . ')';
                 $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $query;
             }
-            
+            $sql .= ' ORDER BY id DESC';
             return $this->execute($sql);
         } catch (PDOException $e) {
             die('ERROR: ' . $e->getMessage());
