@@ -11,7 +11,7 @@ Open this project in other terminal and run!
 docker-compose up
 ```
 
-Run the command to install the compose dependencies and start autoloading the classes
+In other terminal run the command to install the compose dependencies and start autoloading the classes
 
 ##### Compose:
 
@@ -19,7 +19,7 @@ Run the command to install the compose dependencies and start autoloading the cl
 docker exec -it people_list_web composer install
 ```
 
-run this command to run the application tests
+Now run this command to run the application tests
 
 ##### PhpUnit:
 
