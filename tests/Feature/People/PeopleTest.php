@@ -80,7 +80,7 @@ class PeopleTest extends TestCase
         $response = $this->client->get('/api/users');
         $this->assertEquals(200, $response->getStatusCode());
 
-        $people = json_decode($response->getBody()->getContents())->data[3];
+        $people = end(json_decode($response->getBody()->getContents())->data);
         
         $data = [
             "uuid" => $people->uuid

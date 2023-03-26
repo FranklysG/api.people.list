@@ -76,7 +76,7 @@ class CompanyTest extends TestCase
         $response = $this->client->get('/api/company');
         $this->assertEquals(200, $response->getStatusCode());
 
-        $company = json_decode($response->getBody()->getContents())->data[3];
+        $company = end(json_decode($response->getBody()->getContents())->data);
         
         $data = [
             "uuid" => $company->uuid
